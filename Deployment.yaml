@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: SpringBootHelloWorld
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: SpringBootHelloWorld
+  template:
+    metadata:
+      labels:
+        app: SpringBootHelloWorld
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: SpringBootHelloWorld
+        image: springbootapp:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 80
