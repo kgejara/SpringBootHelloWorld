@@ -15,7 +15,7 @@ spec:
       nodeSelector:
         "beta.kubernetes.io/os": linux
       containers:
-      - name: springboothelloworld
+        name: springboothelloworld
         image: springbootapp:latest
         resources:
           requests:
@@ -25,4 +25,4 @@ spec:
             cpu: 250m
             memory: 256Mi
         ports:
-        - containerPort: 80
+          containerPort: 80
